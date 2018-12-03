@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+        function computerPlay(){
+            let randomNum =  Math.floor((Math.random() * 3) + 1); 
+
+            switch (randomNum) {
+                case 1:
+                    return text = "Rock";
+                    break;
+                case 2:
+                    return text = "Paper";
+                    break;
+                case 3:
+                    return text = "Scissor";
+                    break;
+            }    
+        }
+
+        function singleRound(playerSelection , computerSelection){
+            
+            let result;
+            return (computerSelection === "Rock" && playerSelection === "paper") ? result = "win"
+                :  (computerSelection === "Rock" && playerSelection === "scissor")? result = "lose" 
+                :  (computerSelection === "Rock" && playerSelection === "rock")? result= "draw"
+                :  (computerSelection === "Paper" && playerSelection === "scissor")? result= "ganaste"
+                :  (computerSelection === "Paper" && playerSelection === "paper")? result= "draw"
+                :  (computerSelection === "Paper" && playerSelection === "rock")? result="win"
+                :  (computerSelection === "Scissor" && playerSelection === "scissor")? result="draw"
+                :  (computerSelection === "Scissor" && playerSelection === "paper")? result="lose"
+                :  (computerSelection === "Scissor" && playerSelection === "rock")? result="win"
+                : "No escribiste nada men";       
+        
+        }
+
+        function game(){
+            let rounds = 5;
+            let score = 0;
+            for (let i = 0;i < rounds ; i++  ){
+            let playerSelection = window.prompt("Input rock,paper or scissor"); 
+            playerSelection = playerSelection.toLocaleLowerCase();
+            const computerSelection = computerPlay()
+            console.log(singleRound(playerSelection,computerSelection));
+            if(singleRound(playerSelection,computerSelection)=== "win"){
+                score= score + 1;
+            }
+            
+            }
+            return (score >= 3 )? "Ganaste men, con :" + score : "Perdiste men, con :"+ score;
+            
+        }
+        
+       
+
+        console.log(game());
+        
+        
+
+</script>   
+
+
+</body>
+</html>
+
+
+
+
